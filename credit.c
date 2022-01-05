@@ -16,4 +16,5 @@ long get_credit_car_number(void)
     {
         number = get_long("\nEnter a Credit card number: ");
     } while (number < 1);    
+    return number;
 }
