@@ -12,7 +12,19 @@ int main(void)
     int suma2 = 0; 
     int result = 0;
     int valid = 0;
+
+    //int ctype = ??;
     
+    for (int l = 1; l < 16; l++)
+    {
+        long perro = number / pow(10,l);
+        if (perro < 100)
+        {
+            printf("%li\n", perro);
+            break;
+        }
+    }    
+
     for (int i = 1; i < 16; i+=2)
     {   
         int digit = fmod(number / pow(10,i), 10) * 2;
