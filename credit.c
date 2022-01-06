@@ -14,17 +14,7 @@ int main(void)
     int valid = 0;
     int gato = 0;
     int contador = 0;
-    //int ctype = ??;
 
-    /*for (int l = 1; l < 16; l++)
-    {
-        long perro = number / pow(10,l);
-        if (perro < 100)
-        {
-            printf("%li\n", perro);
-            break;
-        }
-    }*/
     while (contador < 16)
     {
         long digit = number / pow(10,contador);
@@ -53,8 +43,7 @@ int main(void)
             break;   
         }
     }
-    //printf("%i\n", contador + 1);    
-
+    //printf("%i\n", contador + 1);
 
     for (int i = 1; i < contador + 1; i+=2)
     {   
@@ -82,6 +71,7 @@ int main(void)
     }
     //printf("\n%i\n", suma2);
 
+  
     result = suma + suma2;
     valid = result % 10;
 
@@ -89,7 +79,8 @@ int main(void)
     {
         printf("Invalid Card\n\n");
     }   
-}
+    printf("%i", result);
+} 
 
 long get_credit_car_number(void)
 {
