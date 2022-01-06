@@ -12,10 +12,11 @@ int main(void)
     int suma2 = 0; 
     int result = 0;
     int valid = 0;
-
+    int gato = 0;
+    int contador = 0;
     //int ctype = ??;
-    
-    for (int l = 1; l < 16; l++)
+
+    /*for (int l = 1; l < 16; l++)
     {
         long perro = number / pow(10,l);
         if (perro < 100)
@@ -23,9 +24,39 @@ int main(void)
             printf("%li\n", perro);
             break;
         }
-    }    
+    }*/
+    while (contador < 16)
+    {
+        long digit = number / pow(10,contador);
+        contador++;
+        int last = contador + 1;
+        if (digit < 100)
+        {
+            //printf("%li\n", digit);
+            
+            if ((digit == 34 || digit == 37) && last == 15)
+            {
+                printf("AMEX\n");
+            }
+            else if ((digit >= 51 && digit <= 55) && last == 16)
+            {
+                printf("MASTERCARD\n");
+            }
+            else if ((last == 13 || last == 16) && (digit >= 40 && digit <= 49))
+            {
+                printf("VISA\n");
+            }
+            else
+            {
+                printf("OTHERS\n");
+            }                  
+            break;   
+        }
+    }
+    //printf("%i\n", contador + 1);    
 
-    for (int i = 1; i < 16; i+=2)
+
+    for (int i = 1; i < contador + 1; i+=2)
     {   
         int digit = fmod(number / pow(10,i), 10) * 2;
 
@@ -38,7 +69,7 @@ int main(void)
     }
     //printf("\n%i\n", suma);
 
-    for (int j = 0; j < 16; j+=2)
+    for (int j = 0; j < contador; j+=2)
     {
         int digit2 = fmod(number / pow(10,j), 10);
 
@@ -54,15 +85,10 @@ int main(void)
     result = suma + suma2;
     valid = result % 10;
 
-    if (valid == 0)
-    {
-        printf("Valid Card\n\n");
-    }
-    else
+    if (valid != 0)
     {
         printf("Invalid Card\n\n");
-    }
-    
+    }   
 }
 
 long get_credit_car_number(void)
@@ -70,7 +96,7 @@ long get_credit_car_number(void)
     long number;
     do
     {
-        number = get_long("\nEnter a Credit card number: ");
+        number = get_long("\nNumber: ");
     } while (number < 1);    
     return number;
 }
