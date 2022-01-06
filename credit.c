@@ -2,17 +2,18 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 long get_credit_car_number(void);
 
 int main(void)
 {
+    system("\nclear");   
     long number = get_credit_car_number();
     int suma = 0;
     int suma2 = 0; 
     int result = 0;
     int valid = 0;
-    int gato = 0;
     int contador = 0;
 
     while (contador < 16)
@@ -77,9 +78,11 @@ int main(void)
 
     if (valid != 0)
     {
-        printf("Invalid Card\n\n");
+        system("\nclear");
+        printf("Number: %li\nINVALID\n\n", number);
     }   
-    printf("%i", result);
+    //printf("%i", result);
+
 } 
 
 long get_credit_car_number(void)
